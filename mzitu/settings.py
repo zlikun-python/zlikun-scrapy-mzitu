@@ -67,10 +67,17 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+# Images Pipeline
+# https://docs.scrapy.org/en/latest/topics/media-pipeline.html
 ITEM_PIPELINES = {
+    'mzitu.pipelines.MzituImagesPipeline': 200,
     'mzitu.pipelines.MzituPipeline': 300,
-    'mzitu.pipelines.MzituJsonPipeline': 400,
+    # 'mzitu.pipelines.MzituJsonPipeline': 400,
 }
+
+IMAGES_STORE = '.data/photo/'
+IMAGES_URLS_FIELD = 'image_urls'
+IMAGES_RESULT_FIELD = 'images'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

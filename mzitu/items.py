@@ -31,3 +31,6 @@ class MzituPhotoItem(scrapy.Item):
     page_url = scrapy.Field()
     photo_number = scrapy.Field()
     album_number = scrapy.Field()
+    # 下面两个字段用于下载图片用
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
