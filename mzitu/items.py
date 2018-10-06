@@ -8,7 +8,9 @@
 import scrapy
 
 
-class MzituItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class MzituAlbumItem(scrapy.Item):
+    """
+    专辑实体类
+    """
+    album = scrapy.Field()
+    url = scrapy.Field()

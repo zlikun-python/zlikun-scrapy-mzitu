@@ -56,7 +56,7 @@ class MzituSpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class ZlikunScrapyMzituDownloaderMiddleware(object):
+class MzituDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
