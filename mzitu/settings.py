@@ -69,6 +69,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'mzitu.pipelines.MzituPipeline': 300,
+    'mzitu.pipelines.MzituJsonPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
