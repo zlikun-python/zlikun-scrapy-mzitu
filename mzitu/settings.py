@@ -72,7 +72,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
     'mzitu.pipelines.MzituImagesPipeline': 200,
     'mzitu.pipelines.MzituPipeline': 300,
-    # 'mzitu.pipelines.MzituJsonPipeline': 400,
+    'mzitu.pipelines.MzituJsonPipeline': 400,
 }
 
 IMAGES_STORE = '.data/photo/'

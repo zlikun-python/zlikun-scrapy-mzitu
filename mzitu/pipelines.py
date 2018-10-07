@@ -59,5 +59,5 @@ class MzituImagesPipeline(ImagesPipeline):
         :return:
         """
         return u'full/{}/{:03d}.{}'.format(request.meta['album_number'],
-                                       int(request.meta['photo_number']),
-                                       request.meta['image_url'].split('.')[-1])
+                                           request.meta['photo_number'],
+                                           request.meta['image_url'].split('.')[-1])

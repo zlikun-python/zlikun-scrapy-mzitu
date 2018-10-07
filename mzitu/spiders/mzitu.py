@@ -25,10 +25,10 @@ class MzituSpider(scrapy.Spider):
             lst = tag.xpath('./self::*/text() | ./self::*/@href').extract()
             # self.log('parse album = {}, url = {}'.format(lst[1], lst[0]))
             # 返回请求（迭代器）
-            # yield Request(url=lst[0], callback=self.parse_album)
+            yield Request(url=lst[0], callback=self.parse_album)
 
-        # 仅供调试，只返回一个专辑请求
-        yield Request(url='http://www.mzitu.com/130464', callback=self.parse_album)
+        # # 仅供调试，只返回一个专辑请求
+        # yield Request(url='http://www.mzitu.com/130464', callback=self.parse_album)
 
     def parse_album(self, response):
         """
@@ -58,7 +58,7 @@ class MzituSpider(scrapy.Spider):
             'url': url,
             'category': category,
             'cover': cover,
-            'create_time': datetime.datetime.strptime(create_time, '%Y-%m-%d %H:%M'),
+            'create_time': datetime.datetime.strptime(create_time, '%Y-%m-%d %H:%M').ctime(),
             'tags': tags,
             'pages': pages
         })
@@ -67,8 +67,8 @@ class MzituSpider(scrapy.Spider):
         yield MzituPhotoItem({
             'photo_url': cover,
             'page_url': url,
-            'photo_number': '1',
-            'album_number': album_number,
+            'photo_number': 1,
+            'album_number': int(album_number),
             'image_urls': [cover],
         })
 
@@ -91,7 +91,7 @@ class MzituSpider(scrapy.Spider):
         yield MzituPhotoItem({
             'photo_url': photo_url,
             'page_url': page_url,
-            'photo_number': photo_number,
-            'album_number': album_number,
+            'photo_number': int(photo_number),
+            'album_number': int(album_number),
             'image_urls': [photo_url],
         })
